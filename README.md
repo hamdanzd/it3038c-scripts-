@@ -4,3 +4,4 @@ I'm interested in robotics and troubleshooting technical issues. I'm a big fan o
 I'm currently learning Python, scripting and network building.
 I'm looking to collaborate on projects and scripting assignments with other students, as it's not my favorite subject.
 You can reach me via email at hamdanzd@mail.uc.edu.
+cat ~/.ssh/id_ed25519.pub 
