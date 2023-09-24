@@ -1,1 +1,22 @@
+Send-MailMessage -To "hamdanzd@mail.uc.edu" -From "hamdanzd@mail.uc.edu" -Subject "IT3038C Windows SysInfo" -Body $BODY -SmtpServer smtp.gmail.com -port 587 -UseSSL -Credential (Get-Credential)
 
+ 
+
+$Body = "This machine's IP is $IP. User is $Username. Hostname is $Hostname. PowerShell Version $PSVersion. Today's date is $Date."
+
+ 
+
+function getIP{
+    (Get-NetIPAddress).IPv4Address | Select-String "192*"
+    }
+
+ 
+
+$IP = getIP 
+$Username = $env:USERNAME
+$Hostname = $env:COMPUTERNAME
+$PSVersion = $HOST.Version.Major
+$Date = (Get-Date).ToString("dddd, MMMM dd, yyyy")
+
+
+write-host($Body)
