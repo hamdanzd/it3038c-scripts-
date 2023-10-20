@@ -1,1 +1,36 @@
+from PIL import Image, ImageFilter
+
+# Open an image file
+image_path = r"C:\Users\Zain Hamdan\Desktop\projects\cat.jpg"
+original_image = Image.open(image_path)
+
+# Use case 1: Resizing an Image
+def resize_image(image, width, height):
+    resized_image = image.resize((width, height))
+    return resized_image
+
+new_width = 300
+new_height = 200
+resized_image = resize_image(original_image, new_width, new_height)
+resized_image.save("resized_image.jpg")
+print("Image resized and saved as 'resized_image.jpg'.")
+
+# Use case 2: Applying a Filter
+def apply_filter(image, filter_type):
+    filtered_image = image.filter(filter_type)
+    return filtered_image
+
+filtered_image = apply_filter(original_image, ImageFilter.GaussianBlur(2))
+filtered_image.save("blurred_image.jpg")
+print("Filter applied and saved as 'blurred_image.jpg'.")
+
+# Use case 3: Rotating an Image
+def rotate_image(image, angle):
+    rotated_image = image.rotate(angle)
+    return rotated_image
+
+rotation_angle = 45
+rotated_image = rotate_image(original_image, rotation_angle)
+rotated_image.save("rotated_image.jpg")
+print("Image rotated and saved as 'rotated_image.jpg'.")
 
