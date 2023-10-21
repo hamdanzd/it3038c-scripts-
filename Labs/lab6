@@ -1,1 +1,58 @@
+var http = require("http");
+var fs = require("fs");
+var os = require("os");
+var ip = require("ip");
+
+var server = http.createServer(function (req, res) {
+  if (req.url === "/") {
+    fs.readFile("./public/index.html", "UTF-8", function (err, body) {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.end(body);
+    });
+  } else if (req.url.match("/sysinfo")) {
+    var hostname = os.hostname();
+    var ipAddress = ip.address();
+    var uptime = os.uptime();
+
+    var uptimeDays = Math.floor(uptime / 86400); // 86400 seconds in a day
+    uptime %= 86400; // Remove days from uptime
+
+    var uptimeHours = Math.floor(uptime / 3600); // 3600 seconds in an hour
+    uptime %= 3600; // Remove hours from uptime
+
+    var uptimeMinutes = Math.floor(uptime / 60); // 60 seconds in a minute
+    var uptimeSeconds = uptime % 60; // Seconds remaining
+
+    var totalMemoryMB = Math.round(os.totalmem() / (1024 * 1024));
+    var freeMemoryMB = Math.round(os.freemem() / (1024 * 1024));
+    var numCPUs = os.cpus().length;
+
+    var html = `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <title>Node Server Info</title>
+        </head>
+        <body>
+          <p>Hostname: ${hostname}</p>
+          <p>IP Address: ${ipAddress}</p>
+          <p>Server Uptime: ${uptimeDays} Days, ${uptimeHours} Hours, ${uptimeMinutes} Minutes, ${uptimeSeconds} Seconds</p>
+          <p>Total Memory: ${totalMemoryMB} MB</p>
+          <p>Free Memory: ${freeMemoryMB} MB</p>
+          <p>Number of CPUs: ${numCPUs}</p>
+        </body>
+      </html>`;
+
+    res.writeHead(200, { "Content-Type": "text/html" });
+    res.end(html);
+  } else {
+    res.writeHead(404, { "Content-Type": "text/plain" });
+    res.end(`404 File Not Found at ${req.url}`);
+  }
+});
+
+var port = 3000;
+server.listen(port, function () {
+  console.log(`Node server is running on port ${port}`);
+});
 
