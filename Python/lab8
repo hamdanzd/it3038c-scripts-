@@ -1,1 +1,21 @@
+import requests
+from bs4 import BeautifulSoup
+
+url = 'http://quotes.toscrape.com/'
+
+response = requests.get(url)
+
+if response.status_code == 200:
+    soup = BeautifulSoup(response.content, 'html.parser')
+
+    quotes = soup.find_all('span', class_='text')
+    authors = soup.find_all('small', class_='author')
+
+    for i in range(len(quotes)):
+        quote = quotes[i].get_text()
+        author = authors[i].get_text()
+        print(f'"{quote}" - {author}\n')
+
+else:
+    print(f"Failed to retrieve data. Status Code: {response.status_code}")
 
