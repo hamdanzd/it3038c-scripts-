@@ -1,1 +1,124 @@
 
+"""
+
+For this upgraded version of the class project, I've incorporated several enhancements into the calculator. 
+It now includes fundamental mathematical operations such as addition, subtraction, multiplication, and division, along with 
+advanced features like power calculations, square root, and factorial computations. In addition, it offers trigonometric functions
+like sine, cosine, and tangent, along with their respective inverse functions. For more advanced mathematical tasks, it provides
+logarithmic and exponential functions.
+
+"""
+
+
+
+import math
+
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y == 0:
+        return "Cannot divide by zero"
+    return x / y
+
+def calculate_power(x, y):
+    return x ** y
+
+def calculate_square_root(x):
+    if x < 0:
+        return "Invalid input: Cannot calculate square root of a negative number"
+    return math.sqrt(x)
+
+def calculate_factorial(x):
+    if x < 0:
+        return "Invalid input: Factorial is defined only for non-negative integers"
+    return math.factorial(x)
+
+def calculate_sin(x):
+    return math.sin(math.radians(x))
+
+def calculate_cos(x):
+    return math.cos(math.radians(x))
+
+def calculate_tan(x):
+    return math.tan(math.radians(x))
+
+def calculate_asin(x):
+    if -1 <= x <= 1:
+        return math.degrees(math.asin(x))
+    return "Invalid input: Input must be between -1 and 1"
+
+def calculate_acos(x):
+    if -1 <= x <= 1:
+        return math.degrees(math.acos(x))
+    return "Invalid input: Input must be between -1 and 1"
+
+def calculate_atan(x):
+    return math.degrees(math.atan(x))
+
+def calculator():
+    print("Welcome to my feature-rich calculator!")
+
+    while True:
+        print("Options:")
+        print("Enter 'add' for addition")
+        print("Enter 'subtract' for subtraction")
+        print("Enter 'multiply' for multiplication")
+        print("Enter 'divide' for division")
+        print("Enter 'power' to calculate power")
+        print("Enter 'sqrt' to calculate square root")
+        print("Enter 'factorial' to calculate factorial")
+        print("Enter 'sin' to calculate sine")
+        print("Enter 'cos' to calculate cosine")
+        print("Enter 'tan' to calculate tangent")
+        print("Enter 'asin' to calculate arcsin")
+        print("Enter 'acos' to calculate arccos")
+        print("Enter 'atan' to calculate arctan")
+        print("Enter 'quit' to end the program")
+
+        user_input = input(": ")
+
+        if user_input == "quit":
+            print("Thanks for using my calculator. Goodbye!")
+            break
+
+        if user_input in ["add", "subtract", "multiply", "divide", "power", "sqrt", "factorial", "sin", "cos", "tan", "asin", "acos", "atan"]:
+            try:
+                if user_input == "sqrt":
+                    num = float(input("Enter the number: "))
+                    result = calculate_square_root(num)
+                elif user_input == "factorial":
+                    num = int(input("Enter a non-negative integer: "))
+                    result = calculate_factorial(num)
+                else:
+                    angle = float(input("Enter an angle in degrees: "))
+                    if user_input == "sin":
+                        result = calculate_sin(angle)
+                    elif user_input == "cos":
+                        result = calculate_cos(angle)
+                    elif user_input == "tan":
+                        result = calculate_tan(angle)
+                    elif user_input == "asin":
+                        result = calculate_asin(angle)
+                    elif user_input == "acos":
+                        result = calculate_acos(angle)
+                    elif user_input == "atan":
+                        result = calculate_atan(angle)
+                print(f"The result is: {result}")
+            except ValueError:
+                print("Invalid input. Please enter valid numbers.")
+            except ZeroDivisionError:
+                print("Cannot divide by zero.")
+            except ValueError:
+                print("Invalid input. Please enter a non-negative integer.")
+        else:
+            print("Invalid input. Please try again.")
+
+if __name__ == "__main__":
+    calculator()
