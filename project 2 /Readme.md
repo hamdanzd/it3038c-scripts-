@@ -1,1 +1,21 @@
+# Feature-Rich Calculator
 
+This Python program implements a feature-rich calculator with various mathematical operations and functions. It includes basic operations like addition, subtraction, multiplication, and division, as well as advanced features such as power calculations, square root, factorial computations, and trigonometric functions.
+
+## Mathematical Operations and Functions
+
+- Addition
+- Subtraction
+- Multiplication
+- Division
+- Power calculations
+- Square root
+- Factorial computations
+- Trigonometric functions (sine, cosine, tangent)
+- Inverse trigonometric functions (arcsin, arccos, arctan)
+
+## How to Run
+ Clone the repository to your local machine and Navigate to the project directory then run the code 
+
+## Sample Output
+Example of adding two numbers:
