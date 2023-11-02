@@ -19,3 +19,54 @@ This Python program implements a feature-rich calculator with various mathematic
 
 ## Sample Output
 Example of adding two numbers:
+```bash
+
+Options:
+Enter 'add' for addition
+Enter 'subtract' for subtraction
+Enter 'multiply' for multiplication
+Enter 'divide' for division
+Enter 'power' to calculate power
+Enter 'sqrt' to calculate square root
+Enter 'factorial' to calculate factorial
+Enter 'sin' to calculate sine
+Enter 'cos' to calculate cosine
+Enter 'tan' to calculate tangent
+Enter 'asin' to calculate arcsin
+Enter 'acos' to calculate arccos
+Enter 'atan' to calculate arctan
+Enter 'quit' to end the program
+
+: add
+Enter the first number: 5
+Enter the second number: 3
+The result is: 8
+```
+
+Example of calculating the sine of an angle:
+
+```bash
+Options:
+Enter 'add' for addition
+Enter 'subtract' for subtraction
+Enter 'multiply' for multiplication
+Enter 'divide' for division
+Enter 'power' to calculate power
+Enter 'sqrt' to calculate square root
+Enter 'factorial' to calculate factorial
+Enter 'sin' to calculate sine
+Enter 'cos' to calculate cosine
+Enter 'tan' to calculate tangent
+Enter 'asin' to calculate arcsin
+Enter 'acos' to calculate arccos
+Enter 'atan' to calculate arctan
+Enter 'quit' to end the program
+
+: sin
+Enter an angle in degrees: 30
+The result is: 0.49999999999999994
+```
+
+## Author
+
+Zaid Hamdan
