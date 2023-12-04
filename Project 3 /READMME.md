@@ -33,8 +33,9 @@ On each file page, click the "Download" button.
 
 
 ## 2. Run the Final project code:
-
+```bash
  python Final project code.py
+```
 
 
  ## 3. Input Email Addresses:
