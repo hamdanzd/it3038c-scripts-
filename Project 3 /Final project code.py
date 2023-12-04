@@ -67,15 +67,16 @@ while True:
         print(f"Classification: {classification}")
         print(f"Username: {username}")
         print(f"Domain: {domain}")
+        print("This email is fully trusted.")
     elif classification == "Blacklisted email":
         print(f"Classification: {classification}")
         print(f"Username: {username}")
         print(f"Domain: {domain}")
         print("The email domain is blacklisted.")
-    elif classification == "Legit  email":
+    elif classification == "Legit but not fully trusted email":
         print(f"Classification: {classification}")
         print(f"Username: {username}")
         print(f"Domain: {domain}")
-        print("This email is legit.")
+        print("This email is legit but not fully trusted.")
     else:
         print(f"Classification: {classification}")
