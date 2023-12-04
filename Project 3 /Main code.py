@@ -1,16 +1,12 @@
 import re
 
-# Read user database from file
-with open('User_database.conf') as user_db_file:
-    user_database = {line.strip(): {} for line in user_db_file}
-
-# List of trusted email domains
-with open('Trusted-domains.conf') as trusted_domains_file:
-    trusted_domains = [line.strip() for line in trusted_domains_file]
-
-# Define the blacklist outside the classify_email function
-with open('Disposable_email_blocklist.conf') as blacklist_file:
-    blacklist = [line.strip() for line in blacklist_file]
+def read_file(file_path):
+    try:
+        with open(file_path) as file:
+            return [line.strip() for line in file]
+    except FileNotFoundError:
+        print(f"Error: File '{file_path}' not found.")
+        return []
 
 def split_email(email):
     # Strip leading and trailing spaces from the email
@@ -49,6 +45,15 @@ def classify_email(email, blacklist):
     except Exception as e:
         return "Invalid email", None, None
 
+# Read user database from file
+user_database = {line: {} for line in read_file('User_database.conf')}
+
+# List of trusted email domains
+trusted_domains = read_file('Trusted-domains.conf')
+
+# Define the blacklist outside the classify_email function
+blacklist = read_file('Disposable_email_blocklist.conf')
+
 # Allow user input
 while True:
     email = input("Enter an email address (or type 'exit' to quit): ")
@@ -74,4 +79,3 @@ while True:
         print("This email is legit but not fully trusted.")
     else:
         print(f"Classification: {classification}")
-
