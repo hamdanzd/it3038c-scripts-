@@ -76,7 +76,7 @@ The script provides three outputs:
 
 
 
-##Notes: 
+## Notes: 
 
 The Disposable_email_blocklist.conf database were taken from "https://github.com/disposable-email-domains/disposable-email-domains/blob/master/README.md"
 
