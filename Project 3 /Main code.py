@@ -1,15 +1,15 @@
 import re
 
 # Read user database from file
-with open('user_database.txt') as user_db_file:
+with open('User_database.conf') as user_db_file:
     user_database = {line.strip(): {} for line in user_db_file}
 
 # List of trusted email domains
-with open('trusted_domains.txt') as trusted_domains_file:
+with open('Trusted-domains.conf') as trusted_domains_file:
     trusted_domains = [line.strip() for line in trusted_domains_file]
 
 # Define the blacklist outside the classify_email function
-with open('blacklist.txt') as blacklist_file:
+with open('Disposable_email_blocklist.conf') as blacklist_file:
     blacklist = [line.strip() for line in blacklist_file]
 
 def split_email(email):
